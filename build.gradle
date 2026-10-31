@@ -1,5 +1,6 @@
 // Build for Minecraft 1.8.9 + Forge 11.15.1.2318 using the Essential/Architectury Loom fork.
-// Requires JDK 8 installed (Gradle toolchain below asks for Java 8).
+// Run Gradle on JDK 17 (the pack200 plugin needs Java 16+) and have JDK 8 installed:
+// the Gradle toolchain below compiles the mod with Java 8.
 // NOT executed by the author of this file - see README.
 plugins {
     id "java"

@@ -80,7 +80,9 @@ VRAM da captura = largura × altura × 4 bytes (≈ 8 MB em 1080p, ≈ 33 MB em 
 O botão **Default** da tela de config restaura os padrões. Comando no chat: `/invfreeze status | toggle | reset`.
 
 ## Compilar no Windows
-1. Instale o **JDK 8** (ex.: Eclipse Temurin 8). Confirme com `java -version`.
+1. Instale o **JDK 17** (para rodar o Gradle; deixe-o como `JAVA_HOME`) **e também o JDK 8** (o toolchain
+   do `build.gradle` compila o mod com ele). Ex.: Eclipse Temurin 8 e 17.
+   (Rodar o Gradle só com JDK 8 falha: o plugin `architectury-pack200` exige Java 16+.)
 2. Abra o PowerShell na pasta do projeto e rode:
    ```
    gradlew.bat build
