@@ -1,0 +1,41 @@
+// Build for Minecraft 1.8.9 + Forge 11.15.1.2318 using the Essential/Architectury Loom fork.
+// Requires JDK 8 installed (Gradle toolchain below asks for Java 8).
+// NOT executed by the author of this file - see README.
+plugins {
+    id "java"
+    id "gg.essential.loom" version "0.10.0.+"
+    id "dev.architectury.architectury-pack200" version "0.1.3"
+}
+
+group = "dev.invfreeze"
+version = "1.0.0"
+
+base {
+    archivesName = "InventoryFreeze"
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+}
+
+loom {
+    forge {
+        pack200Provider.set(new dev.architectury.pack200.java.Pack200Adapter())
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.8.9"
+    mappings "de.oceanlabs.mcp:mcp_stable:22-1.8.9"
+    forge "net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+// The distributable file is build/libs/InventoryFreeze-1.0.0.jar (NOT the "-dev" one).

@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "inventoryfreeze",
+    "name": "Inventory Freeze FPS Optimizer",
+    "description": "Freezes the scene behind the inventory (static snapshot) so the world is not re-rendered while the GUI is open. Client-side only.",
+    "version": "1.0.0",
+    "mcversion": "1.8.9",
+    "authorList": [],
+    "credits": "",
+    "url": "",
+    "updateUrl": "",
+    "parent": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

@@ -1,0 +1,24 @@
+// NOTE: this build configuration could NOT be executed in the environment where the
+// project was written (Forge/Maven hosts were blocked). It follows the layout of the
+// widely used Loom-based 1.8.9 templates. If dependency resolution fails, copy
+// src/main/java and src/main/resources into a known-good 1.8.9 template
+// (see README, section "Se o build falhar").
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url = "https://maven.fabricmc.net" }
+        maven { url = "https://maven.architectury.dev/" }
+        maven { url = "https://maven.minecraftforge.net" }
+        maven { url = "https://repo.essential.gg/repository/maven-public" }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "gg.essential.loom") {
+                useModule("gg.essential:architectury-loom:${requested.version}")
+            }
+        }
+    }
+}
+
+rootProject.name = "InventoryFreeze"
