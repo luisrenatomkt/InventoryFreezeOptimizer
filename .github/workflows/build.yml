@@ -1,0 +1,30 @@
+name: Build mod
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 8
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew build --no-daemon --stacktrace
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: InventoryFreeze
+          path: |
+            build/libs/*.jar
+            !build/libs/*-dev.jar
